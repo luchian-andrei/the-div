@@ -3,9 +3,9 @@ import TheDiv from "../components/TheDiv";
 import DivSettings from "../sections/forDiv/DivSettings";
 import ParentSettings from "../sections/forParent/ParentSettings";
 import ChildrenSettings from "../sections/forChildren/ChildrenSettings";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const DesktopView = () => {
+const DesktopView = ({ handleParent }) => {
   // states for divSettings
   const [backgroundColor, setBackgroundColor] = useState();
   const [borderColor, setBorderColor] = useState();
@@ -31,6 +31,14 @@ const DesktopView = () => {
   const [childrenFontWeight, setChildrenFontWeight] = useState();
   const [childrenBGColor, setChildrenBGColor] = useState();
   const [childrenFontFamily, setChildrenFontFamily] = useState();
+
+  useEffect(() => {
+    if (childrenNumber === 0) {
+      handleParent(false);
+    } else {
+      handleParent(true);
+    }
+  }, [childrenNumber]);
 
   return (
     <div className="flex flex-row justify-between items-start w-full gap-2 mb-3">

@@ -7,6 +7,7 @@ import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [showInfo, setShowInfo] = useState(false);
+  const [parent, setParent] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,7 +22,11 @@ function App() {
   }, []);
 
   return (
-    <section className="flex flex-col  text-center p-6 bg-blue-100 ">
+    <section
+      className={`flex flex-col  text-center p-6 bg-gradient-to-b  from-[#667EEA] to-[#764BA2]  ${
+        parent ? "h-fit" : "h-fit sm:h-screen"
+      } `}
+    >
       <p className="text-black font-semibold text-2xl my-10">
         The div{" "}
         <FontAwesomeIcon
@@ -41,7 +46,11 @@ function App() {
           </span>
         </p>
       )}
-      {width < 768 ? <MobileView /> : <DesktopView />}
+      {width < 768 ? (
+        <MobileView handleParent={(state) => setParent(state)} />
+      ) : (
+        <DesktopView handleParent={(state) => setParent(state)} />
+      )}
     </section>
   );
 }
