@@ -41,7 +41,7 @@ const DesktopView = ({ handleParent }) => {
   }, [childrenNumber]);
 
   return (
-    <div className="flex flex-row justify-between items-start w-full gap-2 mb-3">
+    <div className="flex flex-row justify-between items-start w-full gap-2 p-4">
       <div className="w-3/5 flex flex-col ">
         <DivSettings
           handleBGColor={(option) => setBackgroundColor(option)}

@@ -27,7 +27,7 @@ function App() {
         parent ? "h-fit" : "h-fit sm:h-screen"
       } `}
     >
-      <p className="text-black font-semibold text-2xl mt-10 mb-5">
+      <p className="text-black font-semibold text-2xl mt-5 mb-2">
         The div{" "}
         <FontAwesomeIcon
           icon={faCircleQuestion}
